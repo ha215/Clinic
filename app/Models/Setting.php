@@ -251,9 +251,12 @@ class Setting extends BaseModel implements HasMedia
                 return collect();
             }
         }
+        ini_set('mysql.connect_timeout', 300);
+        ini_set('default_socket_timeout',300);
         return Cache::rememberForever('settings.all', function () {
             return User::select('id', 'name', 'val','datatype')->get();
         });
+
     }
 
     /**
