@@ -6,6 +6,7 @@ use App\Models\Traits\HasHashedMediaTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 use Spatie\MediaLibrary\HasMedia;
+use App\Models\User;
 
 class Setting extends BaseModel implements HasMedia
 {
@@ -251,7 +252,7 @@ class Setting extends BaseModel implements HasMedia
             }
         }
         return Cache::rememberForever('settings.all', function () {
-            return self::select('id', 'name', 'val','datatype')->get();
+            return User::select('id', 'name', 'val','datatype')->get();
         });
     }
 
