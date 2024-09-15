@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Artisan;
 
 class AuthenticatedSessionController extends Controller
 {
-    use AuthTrait;
+    // use AuthTrait;
 
     /**
      * Display the login view.
